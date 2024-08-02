@@ -1,6 +1,6 @@
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/app/(supa-simple-auth)/_supabase/server";
 import { redirect } from "next/navigation";
-import { SubmitButton } from "../components/submit-button";
+import { SubmitButton } from "../_components/submit-button";
 import Link from "next/link";
 
 export default function Login({

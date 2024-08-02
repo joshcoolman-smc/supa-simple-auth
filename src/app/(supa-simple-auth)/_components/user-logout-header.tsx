@@ -1,4 +1,4 @@
-import { createClient } from "@/utils/supabase/server";
+import { createClient } from "@/app/(supa-simple-auth)/_supabase/server";
 import { redirect } from "next/navigation";
 export default async function UserLogoutHeader() {
   const supabase = createClient();
