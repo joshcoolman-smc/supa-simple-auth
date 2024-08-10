@@ -1,4 +1,5 @@
 import { createClient } from "@/app/(supa-simple-auth)/_supabase/server";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 export default async function UserLogoutHeader() {
   const supabase = createClient();
@@ -9,7 +10,7 @@ export default async function UserLogoutHeader() {
     "use server";
     const supabase = createClient();
     await supabase.auth.signOut();
-    return redirect("/login");
+    return redirect("/");
   };
   return (
     <>
@@ -17,11 +18,16 @@ export default async function UserLogoutHeader() {
         <div>
           <div
             className="flex justify-between border-b      
-        border-b-white/20 h-12 items-center mb-4"
+        border-b-white/20 h-12 items-center mb-4 text-gray-300"
           >
-            <h1>{user.email}</h1>
+            <div className="flex items-center">
+              <Link className=" text-sky-300  border-r pr-3 mr-3" href="/">
+                &lt; Home
+              </Link>
+              <p className="font-medium">Howdy, {user.email}</p>
+            </div>
             <form action={signOut}>
-              <button>Logout</button>
+              <button className="text-sky-300">Logout</button>
             </form>
           </div>
         </div>

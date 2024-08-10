@@ -10,7 +10,7 @@ export default async function Page() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return redirect("/login");
+    return redirect("/");
   }
 
   return (

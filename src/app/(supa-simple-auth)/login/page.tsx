@@ -52,8 +52,8 @@ export default function Login({
           </SubmitButton>
         </div>
       </form>
-      <Link href="/" className="text-sky-500 mt-4">
-        &lt; Back to Home Page
+      <Link href="/" className="text-sky-300 mt-4 ">
+        Go Back
       </Link>
 
       {searchParams?.message && (
