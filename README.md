@@ -1,5 +1,3 @@
-![Screenshot of the app](public/screenshots.png)
-
 # Next.js Supabase Auth Starter
 
 A minimal authentication starter for Next.js 14+ using Supabase Auth. Built with zero component libraries and minimal dependencies for easy implementation in any project. This starter is designed for quickly adding an authenticated admin area to your Next.js project, focusing only on email/password login (no signup flow included).
