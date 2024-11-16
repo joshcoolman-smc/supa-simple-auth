@@ -6,7 +6,7 @@ import Link from "next/link";
 export default async function Login({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const supabase = await createClient();
 
@@ -41,10 +41,11 @@ export default async function Login({
     return redirect("/dashboard");
   };
 
-  const message = searchParams?.message
-    ? Array.isArray(searchParams.message)
-      ? searchParams.message[0]
-      : searchParams.message
+  const resolvedParams = await searchParams;
+  const message = resolvedParams?.message
+    ? Array.isArray(resolvedParams.message)
+      ? resolvedParams.message[0]
+      : resolvedParams.message
     : null;
 
   return (
