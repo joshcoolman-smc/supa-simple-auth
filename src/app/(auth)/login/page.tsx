@@ -44,9 +44,9 @@ export default async function Login({ searchParams }: PageProps) {
   };
 
   const message = searchParams?.message
-    ? Array.isArray(params.message)
-      ? params.message[0]
-      : params.message
+    ? Array.isArray(searchParams.message)
+      ? searchParams.message[0]
+      : searchParams.message
     : null;
 
   return (
