@@ -1,15 +1,13 @@
 import { createClient } from "@/app/(auth)/_supabase/server";
 import { redirect } from "next/navigation";
-import type { SearchParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
 import { SubmitButton } from "../_components/submit-button";
 import Link from "next/link";
 
-interface PageProps {
-  params: { [key: string]: string | string[] | undefined };
+export default async function Login({
+  searchParams,
+}: {
   searchParams: { [key: string]: string | string[] | undefined };
-}
-
-export default async function Login({ searchParams }: PageProps) {
+}) {
   const supabase = await createClient();
 
   // Check if user is already logged in
