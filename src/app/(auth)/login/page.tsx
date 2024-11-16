@@ -1,13 +1,15 @@
 import { createClient } from "@/app/(auth)/_supabase/server";
 import { redirect } from "next/navigation";
+import type { SearchParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
 import { SubmitButton } from "../_components/submit-button";
 import Link from "next/link";
 
-export default async function Login({
-  searchParams,
-}: {
-  searchParams: { message?: string | string[] };
-}) {
+interface PageProps {
+  params: { [key: string]: string | string[] | undefined };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default async function Login({ searchParams }: PageProps) {
   const supabase = await createClient();
 
   // Check if user is already logged in
@@ -41,8 +43,7 @@ export default async function Login({
     return redirect("/dashboard");
   };
 
-  const params = await searchParams;
-  const message = params?.message
+  const message = searchParams?.message
     ? Array.isArray(params.message)
       ? params.message[0]
       : params.message
