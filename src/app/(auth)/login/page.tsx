@@ -41,7 +41,7 @@ export default async function Login({
     return redirect("/dashboard");
   };
 
-  const message = (await searchParams?.message)
+  const message = searchParams?.message
     ? Array.isArray(searchParams.message)
       ? searchParams.message[0]
       : searchParams.message
